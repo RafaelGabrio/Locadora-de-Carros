@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view_telas;
+package apresentacao.view_telas;
 
 /**
  *
@@ -16,6 +16,7 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
      */
     public CadastroPessoaJuridica() {
         initComponents();
+        
     }
 
     /**
@@ -44,7 +45,11 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 51));
         jLabel2.setText("Cadastro de pessoa jurídica");
 
-        txtFisicaResp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtFisicaResp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFisicaRespActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Pessoa física responsável:");
 
@@ -138,12 +143,16 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNPJActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCNPJActionPerformed
+
+    private void txtFisicaRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFisicaRespActionPerformed
+        
+    }//GEN-LAST:event_txtFisicaRespActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +188,7 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
