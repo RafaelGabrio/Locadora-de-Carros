@@ -79,13 +79,16 @@ public class home extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/carro.png"))); // NOI18N
         jMenu3.setText("Veículo");
 
-        jMenuItem2.setText("Cadastrar");
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/carro+.png"))); // NOI18N
+        jMenuItem2.setText("Cadastrar veículo");
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/kisspng-car-parking-system-computer-icons-car-parking-syst-tow-truck-icon-5b45762a0092f8.9897320215312788900024.jpg"))); // NOI18N
         jMenu4.setText("Locação");
 
         jMenuItem3.setText("Realizar");
@@ -96,6 +99,7 @@ public class home extends javax.swing.JFrame {
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/page.png"))); // NOI18N
         jMenu5.setText("Relatórios");
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pageoj.png"))); // NOI18N
         jMenuItem4.setText("Gerar ");
         jMenu5.add(jMenuItem4);
 
