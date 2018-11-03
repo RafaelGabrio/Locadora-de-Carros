@@ -69,7 +69,7 @@ public class cadastroPessoa extends javax.swing.JFrame {
         getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 120, 30));
 
         jLabel3.setText("Nome:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 140, 10));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 40, 10));
 
         jLabel4.setText("Idade:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 60, 20));
