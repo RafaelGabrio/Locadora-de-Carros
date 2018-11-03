@@ -37,8 +37,8 @@ public class cadastroPessoa extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         comboCNH = new javax.swing.JComboBox<>();
         comboSexo = new javax.swing.JComboBox<>();
-        txtIdade = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
+        nIdade = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,7 +72,7 @@ public class cadastroPessoa extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 140, 10));
 
         jLabel4.setText("Idade:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 60, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 60, 20));
 
         jLabel5.setText("Sexo:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 30, -1));
@@ -90,8 +90,8 @@ public class cadastroPessoa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 230, -1));
-        getContentPane().add(txtIdade, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 170, 30));
         getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 430, 30));
+        getContentPane().add(nIdade, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 430, 30));
 
         pack();
         setLocationRelativeTo(null);
@@ -154,7 +154,7 @@ public class cadastroPessoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField txtIdade;
+    private javax.swing.JSpinner nIdade;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }
