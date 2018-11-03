@@ -50,6 +50,12 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
 
         jLabel4.setText("CNPJ:");
 
+        txtCNPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCNPJActionPerformed(evt);
+            }
+        });
+
         btnCancelar.setBackground(new java.awt.Color(255, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
@@ -128,11 +134,16 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
         home home1 = new home();
         home1.show();
         this.hide();
+        //oi
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNPJActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCNPJActionPerformed
 
     /**
      * @param args the command line arguments
