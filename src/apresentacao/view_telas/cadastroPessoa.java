@@ -138,7 +138,6 @@ public class cadastroPessoa extends javax.swing.JFrame {
         p.setSexo(sexo);
         try{
             new PessoaFisicaNE().cadastrar(p);
-            
         } catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);

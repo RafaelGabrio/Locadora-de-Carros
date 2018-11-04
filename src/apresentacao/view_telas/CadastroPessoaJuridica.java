@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package apresentacao.view_telas;
+
+import javax.swing.JComboBox;
 
 /**
  *
@@ -16,7 +13,6 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
      */
     public CadastroPessoaJuridica() {
         initComponents();
-        
     }
 
     /**
@@ -189,7 +185,11 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
         });
     }
 
-
+    public JComboBox<Object> getTxtFisicaResp() {
+        return txtFisicaResp;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
@@ -198,6 +198,6 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtCNPJ;
-    private javax.swing.JComboBox<String> txtFisicaResp;
+    private javax.swing.JComboBox<Object> txtFisicaResp;
     // End of variables declaration//GEN-END:variables
 }

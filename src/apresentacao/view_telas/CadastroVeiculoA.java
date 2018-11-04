@@ -5,6 +5,14 @@
  */
 package apresentacao.view_telas;
 
+import classes.Caminhao;
+import classes.Carro;
+import classes.Moto;
+import classes.Veiculo;
+import classes.VeiculoAutomotor;
+import javax.swing.JOptionPane;
+import negocio.VeiculoAutomotorNE;
+
 /**
  *
  * @author Meire
@@ -78,8 +86,13 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.setBorder(null);
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
-        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Escolha uma opção--", "caminhão", "carro", "moto" }));
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecionar Item --", "Moto", "Carro", "Caminhão" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,6 +181,50 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         home1.show();
         this.hide();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        String marca = txtMarca.getText();
+        int ano = (int)nAno.getValue();
+        int km = Integer.parseInt(txtKm.getText());
+        String tipoComb = txtTipoCombustivel.getText();
+        String modelo = txtModelo.getText();
+        String tipo = comboTipo.getSelectedItem().toString();
+        
+        VeiculoAutomotor v = new VeiculoAutomotor();
+        v.setMarca(marca);
+        v.setAno(ano);
+        v.setKm(km);
+        v.setTipoCompustivel(tipoComb);
+        v.setModelo(modelo);
+        
+        Veiculo t = null;
+        switch(tipo){
+            case "Moto":
+                System.out.println("Moto");
+                Moto m = new Moto();
+                t = (Veiculo)m;
+                
+                break;
+            case "Carro":
+                System.out.println( "Carro");
+                Carro c = new Carro();
+                t = (Veiculo)c;
+                break;
+            case "Caminhão":
+                System.out.println("Caminhão");
+                Caminhao ca = new Caminhao();
+                t = (Veiculo)ca;
+        }
+        v.setTipo(t);
+        
+        try{
+            new VeiculoAutomotorNE().cadastrar(v);
+        } catch(Exception ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+                
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments

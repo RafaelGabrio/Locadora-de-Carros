@@ -196,6 +196,9 @@
           <Border info="null"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSpinner" name="nAno">
     </Component>
@@ -211,10 +214,10 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="--Escolha uma op&#xe7;&#xe3;o--"/>
-            <StringItem index="1" value="caminh&#xe3;o"/>
-            <StringItem index="2" value="carro"/>
-            <StringItem index="3" value="moto"/>
+            <StringItem index="0" value="-- Selecionar Item --"/>
+            <StringItem index="1" value="Moto"/>
+            <StringItem index="2" value="Carro"/>
+            <StringItem index="3" value="Caminh&#xe3;o"/>
           </StringArray>
         </Property>
       </Properties>

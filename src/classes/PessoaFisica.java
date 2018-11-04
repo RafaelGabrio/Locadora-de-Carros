@@ -44,5 +44,8 @@ public class PessoaFisica extends Pessoa {
         this.idade = idade;
     }
     
-    
+    @Override
+    public String toString(){
+        return this.getNome();
+    }
 }
