@@ -11,8 +11,7 @@ public class VeiculoAutomotorPersistencia {
     private Persistencia persistencia;
     
     public VeiculoAutomotorPersistencia(VeiculoAutomotor veiculo) throws IOException{
-        new PersistenciaArquivo();
-        persistencia.salvar("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
-                + "\\trabalholocadora\\trabalholocadora\\BD\\VeiculosAutomotor\\VeiculoAut_"+veiculo.getModelo()+".txt", veiculo);
+        Persistencia p = new PersistenciaArquivo();
+        p.salvar("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Veiculos\\Veiculo_"+veiculo.getModelo()+".txt", veiculo);
     }
 }

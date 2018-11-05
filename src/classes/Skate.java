@@ -4,6 +4,6 @@ package classes;
  *
  * @author geoleite
  */
-public class Skate extends VeiculoTracaoAnimao {
+public class Skate extends VeiculoTracaoAnimal {
     
 }

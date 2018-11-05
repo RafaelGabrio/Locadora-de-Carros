@@ -138,13 +138,12 @@ public class cadastroPessoa extends javax.swing.JFrame {
         p.setSexo(sexo);
         try{
             new PessoaFisicaNE().cadastrar(p);
+            JOptionPane.showMessageDialog(null, "Nome: "+nome+"\n"+"CPF: "+cpf+"\n"+"Sexo: "+sexo
+                    +"\nIdade: "+idade,"Resumo",JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            JOptionPane.showMessageDialog(null, "Nome: "+nome+"\n"+"CPF: "+cpf+"\n"+"Sexo: "+sexo);
-   
-        }
+        } 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**

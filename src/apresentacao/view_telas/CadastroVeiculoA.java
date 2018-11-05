@@ -231,10 +231,10 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         t.setModelo(modelo);
         //v.setTipo(t);
         //JOptionPane.showMessageDialog(null, t instanceof Moto);
-        
         try{
             new VeiculoAutomotorNE().cadastrar(t);
-            JOptionPane.showMessageDialog(null, "entrou");
+            JOptionPane.showMessageDialog(null, "Marca: "+t.getMarca()+"\nModelo: "+t.getModelo()
+                    +"\nTipo: "+tipo+"\nAno: "+ano,"Resumo",JOptionPane.INFORMATION_MESSAGE);
         } catch(Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

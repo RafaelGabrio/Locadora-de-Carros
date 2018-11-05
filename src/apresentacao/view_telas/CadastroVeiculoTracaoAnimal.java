@@ -5,6 +5,15 @@
  */
 package apresentacao.view_telas;
 
+import classes.Bike;
+import classes.Patins;
+import classes.Skate;
+import classes.VeiculoTracaoAnimal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import negocio.VeiculoTracaoAnimalNE;
+
 /**
  *
  * @author Meire
@@ -66,6 +75,11 @@ public class CadastroVeiculoTracaoAnimal extends javax.swing.JFrame {
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.setBorder(null);
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background-image-1273097_960_720.jpg"))); // NOI18N
 
@@ -136,6 +150,42 @@ public class CadastroVeiculoTracaoAnimal extends javax.swing.JFrame {
         home1.show();
         this.hide();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        String marca = txtMarcaTracao.getText();
+        int ano = (int)nAnoTracao.getValue();
+        String tipo = comboTipoTracao.getSelectedItem().toString();
+        
+        VeiculoTracaoAnimal vt = new VeiculoTracaoAnimal();
+        switch(tipo){
+            case "bike":
+                System.out.println("Bike");
+                Bike b = new Bike();
+                vt = b;
+                break;
+            case "patins":
+                System.out.println("Patins");
+                Patins p = new Patins();
+                vt = p;
+                break;
+            case "skate":
+                System.out.println("Skate");
+                Skate s = new Skate();
+                vt = s;
+                break;
+        }
+        
+        vt.setAno(ano);
+        vt.setMarca(marca);
+        try {
+            new VeiculoTracaoAnimalNE().cadastrar(vt);
+            JOptionPane.showMessageDialog(null, "Ano: "+ano+"\n"
+                    +"Marca: "+marca+"\nTipo: "+tipo,"Resumo",JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+           ex.printStackTrace();
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
