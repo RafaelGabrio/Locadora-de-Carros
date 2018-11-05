@@ -3,15 +3,15 @@ package classes;
 public class Veiculo {
     private String marca;
     private int ano;
-    private Veiculo tipo;
+    //private Veiculo tipo;
 
-    public Veiculo getTipo() {
+   /* public Veiculo getTipo() {
         return tipo;
     }
 
     public void setTipo(Veiculo tipo) {
         this.tipo = tipo;
-    }
+    }*/
     
     
 

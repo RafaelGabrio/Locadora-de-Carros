@@ -12,7 +12,7 @@ public class VeiculoAutomotorNE {
         VeiculoAutomotor v = (VeiculoAutomotor)veiculo;
         if (v.getModelo().equals(null))
             throw new Exception("É necessário que você preencha o campo MODELO");
-        if (v.getTipo() == null);
-            throw new Exception("É necessário selecionar um tipo de veículo válido");
+        /*if (v.getTipo() == null);
+            throw new Exception("É necessário selecionar um tipo de veículo válido");*/
     }
 }

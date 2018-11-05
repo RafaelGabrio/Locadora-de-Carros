@@ -93,6 +93,11 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         });
 
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecionar Item --", "Moto", "Carro", "Caminhão" }));
+        comboTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTipoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,41 +195,56 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         String modelo = txtModelo.getText();
         String tipo = comboTipo.getSelectedItem().toString();
         
-        VeiculoAutomotor v = new VeiculoAutomotor();
+        //Teste do combo //JOptionPane.showMessageDialog(null, tipo);
+        
+        /*VeiculoAutomotor v = new VeiculoAutomotor();
         v.setMarca(marca);
         v.setAno(ano);
         v.setKm(km);
         v.setTipoCompustivel(tipoComb);
-        v.setModelo(modelo);
+        v.setModelo(modelo);*/
         
-        Veiculo t = null;
+        //JOptionPane.showMessageDialog(null, v.getTipo());
+        
+        VeiculoAutomotor t = null;
         switch(tipo){
             case "Moto":
                 System.out.println("Moto");
                 Moto m = new Moto();
-                t = (Veiculo)m;
-                
+                t = m;
+                //teste//JOptionPane.showMessageDialog(null, t);
                 break;
             case "Carro":
                 System.out.println( "Carro");
                 Carro c = new Carro();
-                t = (Veiculo)c;
+                t = c;
                 break;
             case "Caminhão":
                 System.out.println("Caminhão");
                 Caminhao ca = new Caminhao();
-                t = (Veiculo)ca;
+                t = ca;
         }
-        v.setTipo(t);
+        t.setAno(ano); //ok
+        t.setMarca(marca); //ok
+        t.setKm(km);
+        t.setTipoCompustivel(tipoComb);
+        t.setModelo(modelo);
+        //v.setTipo(t);
+        //JOptionPane.showMessageDialog(null, t instanceof Moto);
         
         try{
-            new VeiculoAutomotorNE().cadastrar(v);
+            new VeiculoAutomotorNE().cadastrar(t);
+            JOptionPane.showMessageDialog(null, "entrou");
         } catch(Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
                 
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void comboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTipoActionPerformed
 
     /**
      * @param args the command line arguments
