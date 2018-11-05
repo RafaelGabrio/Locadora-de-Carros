@@ -1,5 +1,6 @@
 package apresentacao.view_telas;
 
+import classes.PessoaFisica;
 import javax.swing.JComboBox;
 
 /**
@@ -139,6 +140,10 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        PessoaFisica ps = (PessoaFisica)txtFisicaResp.getSelectedItem();
+        String cnpj = txtCNPJ.getText();
+        
+        
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

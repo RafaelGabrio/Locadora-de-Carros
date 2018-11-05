@@ -124,7 +124,7 @@ public class cadastroPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        CadastroPessoaJuridica pj = new CadastroPessoaJuridica();
+        //CadastroPessoaJuridica pj = new CadastroPessoaJuridica();
         String nome = txtNome1.getText();
         int idade = (int) nIdade.getValue();
         String sexo = comboSexo.getSelectedItem().toString();
@@ -138,6 +138,7 @@ public class cadastroPessoa extends javax.swing.JFrame {
         p.setSexo(sexo);
         try{
             new PessoaFisicaNE().cadastrar(p);
+            JOptionPane.showMessageDialog(null, "pessoa cadastrada com sucesso");
         } catch (Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
