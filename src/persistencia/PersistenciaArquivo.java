@@ -1,5 +1,6 @@
 package persistencia;
 
+import classes.PessoaJuridica;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -20,17 +21,12 @@ public class PersistenciaArquivo implements Persistencia{
     }
 
     @Override
-    public void ler(String caminho, Object objeto) throws IOException {
+    public Object ler(String caminho) throws IOException {
         BufferedReader buffRead = new BufferedReader(new FileReader(caminho));
-        String linha = "";
-        while (true){
-            if (linha != null)
-                System.out.println(linha);
-            else
-                break;
-            linha = buffRead.readLine();
-        }
+        Object linha = buffRead.readLine();
         buffRead.close();
+        return linha;
     }
-    
+
 }
+    

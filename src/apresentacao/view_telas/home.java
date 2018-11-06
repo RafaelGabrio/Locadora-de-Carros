@@ -5,6 +5,10 @@
  */
 package apresentacao.view_telas;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Meire
@@ -45,6 +49,8 @@ public class home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
         setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(820, 560));
+        setPreferredSize(new java.awt.Dimension(800, 560));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/realmob.png"))); // NOI18N
@@ -55,7 +61,7 @@ public class home extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Versão 1.0");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 480, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background-image-1273097_960_720.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -149,7 +155,8 @@ public class home extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        CadastroPessoaJuridica pessoaj = new CadastroPessoaJuridica();
+        CadastroPessoaJuridica pessoaj;
+        pessoaj = new CadastroPessoaJuridica();
         pessoaj.show();
         this.hide();
     }//GEN-LAST:event_jMenuItem5ActionPerformed

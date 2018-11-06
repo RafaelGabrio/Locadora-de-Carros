@@ -196,7 +196,7 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         String tipo = comboTipo.getSelectedItem().toString();
         
         //Teste do combo //JOptionPane.showMessageDialog(null, tipo);
-        
+   
         /*VeiculoAutomotor v = new VeiculoAutomotor();
         v.setMarca(marca);
         v.setAno(ano);
@@ -224,8 +224,9 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
                 Caminhao ca = new Caminhao();
                 t = ca;
         }
-        t.setAno(ano); //ok
-        t.setMarca(marca); //ok
+        
+        t.setAno(ano);
+        t.setMarca(marca);
         t.setKm(km);
         t.setTipoCompustivel(tipoComb);
         t.setModelo(modelo);
@@ -235,6 +236,9 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
             new VeiculoAutomotorNE().cadastrar(t);
             JOptionPane.showMessageDialog(null, "Marca: "+t.getMarca()+"\nModelo: "+t.getModelo()
                     +"\nTipo: "+tipo+"\nAno: "+ano,"Resumo",JOptionPane.INFORMATION_MESSAGE);
+
+            JOptionPane.showMessageDialog(null, "Veículo cadastrado com sucesso");
+
         } catch(Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

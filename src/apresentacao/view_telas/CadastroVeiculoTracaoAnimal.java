@@ -152,6 +152,7 @@ public class CadastroVeiculoTracaoAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+
         String marca = txtMarcaTracao.getText();
         int ano = (int)nAnoTracao.getValue();
         String tipo = comboTipoTracao.getSelectedItem().toString();
@@ -185,6 +186,10 @@ public class CadastroVeiculoTracaoAnimal extends javax.swing.JFrame {
            ex.printStackTrace();
            JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
+        
+
+// TODO add your handling code here:
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**

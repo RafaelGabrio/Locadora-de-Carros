@@ -1,6 +1,7 @@
 package negocio;
 
 import classes.PessoaJuridica;
+import persistencia.PersistenciaArquivo;
 
 /**
  *
@@ -14,6 +15,8 @@ public class PessoaJuridicaNE {
             throw new Exception("O campo CNPJ não foi preenchido correntamente \n"
                     + "Dica: um cnpj não tem mais que 14 dígitos\n"
                     + "Dica: um cnpj não tem menos que 14 digitos ou não pode ficar vazio");
+        new PersistenciaArquivo().salvar("C:\\Users\\rafae\\Documents\\NetBeansProjects"
+                + "\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\PessoasJuridicas\\PessoasJ_"+p.getCnpj(), p);
     }
     
     
