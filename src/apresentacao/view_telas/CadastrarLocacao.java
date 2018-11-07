@@ -6,7 +6,9 @@
 package apresentacao.view_telas;
 
 import classes.Locacao;
+import classes.Moto;
 import classes.Pessoa;
+import classes.PessoaFisica;
 import classes.Veiculo;
 import javax.swing.JOptionPane;
 import negocio.LocacaoNE;
@@ -22,6 +24,39 @@ public class CadastrarLocacao extends javax.swing.JFrame {
      */
     public CadastrarLocacao() {
         initComponents();
+        PessoaFisica pf1 = new PessoaFisica("Gabi");
+        pf1.setCnh("A");
+        pf1.setIdade(19);
+        pf1.setSexo("Feminino");
+        pf1.setCpf("111.111.111-90");
+        
+        PessoaFisica pf2 = new PessoaFisica("Gabi2");
+        pf2.setCnh("A");
+        pf2.setIdade(19);
+        pf2.setSexo("Feminino");
+        pf2.setCpf("111.111.111-90");
+        
+        Moto m1 = new Moto();
+        m1.setAno(200);
+        m1.setKm(386483);
+        m1.setMarca("honda");
+        m1.setModelo("hod");
+        m1.setTipoCompustivel("gasolina");
+
+        
+        
+        
+        //JOptionPane.showMessageDialog(null,pf1.getNome());
+      
+        
+        comboPessoas.addItem(pf1);        
+        comboPessoas.addItem(pf2);
+        comboVeiculos.addItem(m1);
+
+        
+        
+        
+        
     }
 
     /**
@@ -83,10 +118,6 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         jLabel5.setText("Data de retorno:");
 
         jLabel6.setText("Status de finalização:");
-
-        comboVeiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        comboPessoas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setText("Data de saída:");
 
@@ -197,7 +228,7 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         l1.setDtSaida(dtSaida);
         l1.setFinalizado(status);
         
-                try{
+        try{
             new LocacaoNE().cadastrar(l1);
             /*JOptionPane.showMessageDialog(null, "Nome Pessoa: "+p1.getNome()+"\nVeículo: "+v1.getMarca()
                     +"\nData Retorno: "+dtRetorno+"\nData Saída: "+dtSaida,"Resumo",JOptionPane.INFORMATION_MESSAGE);
@@ -207,7 +238,7 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         } catch(Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+        } 
         
         
         
@@ -255,8 +286,8 @@ public class CadastrarLocacao extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JComboBox<String> comboFinalizado;
-    private javax.swing.JComboBox<String> comboPessoas;
-    private javax.swing.JComboBox<String> comboVeiculos;
+    private javax.swing.JComboBox<Object> comboPessoas;
+    private javax.swing.JComboBox<Object> comboVeiculos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -39,5 +39,9 @@ public class Veiculo {
     public void setAno(int ano) {
         this.ano = ano;
     }
-            
+
+    @Override
+    public String toString(){
+        return getMarca();
+    }
 }
