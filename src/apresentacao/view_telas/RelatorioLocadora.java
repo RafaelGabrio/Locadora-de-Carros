@@ -5,6 +5,9 @@
  */
 package apresentacao.view_telas;
 
+import classes.Locadora;
+
+
 /**
  *
  * @author Meire
@@ -14,8 +17,17 @@ public class RelatorioLocadora extends javax.swing.JFrame {
     /**
      * Creates new form RelatorioLocador
      */
+    Locadora locadora = new Locadora();
+
     public RelatorioLocadora() {
         initComponents();
+        txtTotalLocacao.setText(Integer.toString(locadora.getQuantidade()));
+        txtLocacaoEmAberto.setText(Integer.toString(locadora.getQuanitadeNaoFinalizadas()));
+        txtTipoComLocacao.setText(locadora.getQntTipoVeiculoNaoFinalizado());
+        txtLocacaoPorVeiculo.setText(locadora.quantidadeLocacoesPorVeiculo());
+        
+        
+        
     }
 
     /**
@@ -28,23 +40,26 @@ public class RelatorioLocadora extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        txtDtRetorno = new javax.swing.JTextField();
+        txtTipoComLocacao = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        comboVeiculos = new javax.swing.JComboBox<>();
-        comboPessoas = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtLocacaoPorVeiculo = new javax.swing.JTextArea();
+        txtTotalLocacao = new javax.swing.JTextField();
+        txtLocacaoEmAberto = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 51));
         jLabel2.setText("Relatório de locação");
+
+        txtTipoComLocacao.setEditable(false);
+        txtTipoComLocacao.setEnabled(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background-image-1273097_960_720.jpg"))); // NOI18N
 
@@ -66,13 +81,17 @@ public class RelatorioLocadora extends javax.swing.JFrame {
 
         jLabel6.setText("Qual a quantidade de locações por tipo de veículo:");
 
-        comboVeiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtLocacaoPorVeiculo.setEditable(false);
+        txtLocacaoPorVeiculo.setColumns(20);
+        txtLocacaoPorVeiculo.setRows(5);
+        txtLocacaoPorVeiculo.setEnabled(false);
+        jScrollPane1.setViewportView(txtLocacaoPorVeiculo);
 
-        comboPessoas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtTotalLocacao.setEditable(false);
+        txtTotalLocacao.setEnabled(false);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtLocacaoEmAberto.setEditable(false);
+        txtLocacaoEmAberto.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,10 +106,10 @@ public class RelatorioLocadora extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comboPessoas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboVeiculos, 0, 434, Short.MAX_VALUE)
-                    .addComponent(txtDtRetorno)
-                    .addComponent(jScrollPane1))
+                    .addComponent(txtTipoComLocacao)
+                    .addComponent(txtLocacaoEmAberto)
+                    .addComponent(txtTotalLocacao)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -109,25 +128,28 @@ public class RelatorioLocadora extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(txtTotalLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtLocacaoEmAberto)))
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtTipoComLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -181,8 +203,6 @@ public class RelatorioLocadora extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JComboBox<String> comboPessoas;
-    private javax.swing.JComboBox<String> comboVeiculos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -190,7 +210,9 @@ public class RelatorioLocadora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField txtDtRetorno;
+    private javax.swing.JTextField txtLocacaoEmAberto;
+    private javax.swing.JTextArea txtLocacaoPorVeiculo;
+    private javax.swing.JTextField txtTipoComLocacao;
+    private javax.swing.JTextField txtTotalLocacao;
     // End of variables declaration//GEN-END:variables
 }

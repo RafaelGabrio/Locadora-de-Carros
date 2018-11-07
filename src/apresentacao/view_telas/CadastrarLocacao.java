@@ -11,8 +11,12 @@ import classes.Pessoa;
 import classes.PessoaFisica;
 import classes.Veiculo;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import negocio.LocacaoNE;
+import persistencia.PersistenciaArquivo;
 
 /**
  *
@@ -131,7 +135,12 @@ public class CadastrarLocacao extends javax.swing.JFrame {
             }
         });
 
-        comboFinalizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Escolha uma opção--", "True", "False" }));
+        comboFinalizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Finalizado", "Não finalizado" }));
+        comboFinalizado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboFinalizadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,27 +232,59 @@ public class CadastrarLocacao extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDtSaidaActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        Pessoa p1 = (Pessoa) comboPessoas.getSelectedItem();
-        Veiculo v1 = (Veiculo) comboVeiculos.getSelectedItem();
+        Pessoa p1 = null;
+        try {
+            p1 = (Pessoa) new PersistenciaArquivo().ler(comboPessoas.getSelectedItem().toString());
+        } catch (IOException ex) {
+            System.out.println("Não foi possivel ler a pessoa");
+        }
+        Veiculo v1 = null;
+        try {
+            v1 = (Veiculo) new PersistenciaArquivo().ler((String) comboVeiculos.getSelectedItem());
+        } catch (IOException ex) {
+            System.out.println("Não foi possível ler o veículo");
+        }
         String dtRetorno = txtDtRetorno.getText();
         String dtSaida = txtDtSaida.getText();
-        boolean status = (boolean) comboFinalizado.getSelectedItem();
+        String status = (String) comboFinalizado.getSelectedItem().toString();
+        boolean status1 = false;
+        if (status == "Não finalizado") {
+              status1 = false;
+        }
+        else
+        {
+            status1 = true;
+        }
+        //boolean status =  Boolean.parseBoolean(comboFinalizado.getSelectedItem().toString());
         
+        JOptionPane.showMessageDialog(null, status1);
         
+        Locacao l = null;
+        try {
+            l = new Locacao(p1,v1);
+            new LocacaoNE().cadastrar(l, p1, v1);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        l.setDtRetorno(dtRetorno);
+        l.setFinalizado(status1);
+        l.setDtSaida(dtSaida);
         
-        Locacao l1 = null;
-        l1.setPessoa(p1);
-        l1.setVeiculo(v1);
-        l1.setDtRetorno(dtRetorno);
-        l1.setDtSaida(dtSaida);
-        l1.setFinalizado(status);
+        //assim da erro
+        /*Locacao ll = null;
+        ll.setPessoa(p1);
+        ll.setVeiculo(v1);
+        ll.setDtRetorno(dtRetorno);
+        ll.setFinalizado(status1);
+        ll.setDtSaida(dtSaida);*/
         
         try{
-            new LocacaoNE().cadastrar(l1, p1, v1);
+            new LocacaoNE().cadastrar(l, p1, v1);
             /*JOptionPane.showMessageDialog(null, "Nome Pessoa: "+p1.getNome()+"\nVeículo: "+v1.getMarca()
-                    +"\nData Retorno: "+dtRetorno+"\nData Saída: "+dtSaida,"Resumo",JOptionPane.INFORMATION_MESSAGE);
+                    +"\nData Retorno: "+dtRetorno+"\nData Saída: "+dtSaida,"Resumo",JOptionPane.INFORMATION_MESSAGE); */
 
-            JOptionPane.showMessageDialog(null, "Locação cadastrado com sucesso");*/
+            JOptionPane.showMessageDialog(null, "Locação cadastrado com sucesso");
 
         } catch(Exception ex){
             ex.printStackTrace();
@@ -256,6 +297,10 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void comboFinalizadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFinalizadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboFinalizadoActionPerformed
 
     /**
      * @param args the command line arguments

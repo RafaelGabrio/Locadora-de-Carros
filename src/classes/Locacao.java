@@ -5,11 +5,13 @@
  */
 package classes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Meire
  */
-public class Locacao {
+public class Locacao implements Serializable {
     
     private Pessoa pessoa;
     private Veiculo veiculo;
