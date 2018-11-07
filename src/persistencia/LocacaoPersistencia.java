@@ -16,6 +16,6 @@ public class LocacaoPersistencia {
     Persistencia persistencia;
     public LocacaoPersistencia(Locacao l) throws IOException{
         persistencia = new PersistenciaArquivo();
-        persistencia.salvar("C:\\Users\\Meire\\Documents\\NetBeansProjects\\agilTransports\\BD\\Locacao"+l.getVeiculo()+l.getPessoa()+".txt", l);
+        persistencia.salvar("C:\\Users\\Meire\\Documents\\NetBeansProjects\\agilTransports\\BD\\Locacao"+l.getVeiculo()+l.getPessoa()+".dat", l);
     }
 }
