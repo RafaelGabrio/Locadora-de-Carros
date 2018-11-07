@@ -20,7 +20,6 @@ public class Locacao implements Serializable {
 
     public Locacao(Pessoa pessoa, Veiculo veiculo) throws Exception {
         existeVeiculoEPessoa(pessoa, veiculo);
-        possuiCNH(pessoa, veiculo);
         setPessoa(pessoa);
         setVeiculo(veiculo);
     }
@@ -31,7 +30,7 @@ public class Locacao implements Serializable {
         }
     }
 
-    private void possuiCNH(Pessoa pessoa, Veiculo veiculo) throws Exception {
+    /*private void possuiCNH(Pessoa pessoa, Veiculo veiculo) throws Exception {
         if (veiculo instanceof VeiculoAutomotor) {
             PessoaFisica pf = null;
             if (pessoa instanceof PessoaFisica) {
@@ -53,7 +52,7 @@ public class Locacao implements Serializable {
                 throw new CNHException("CNH do usuário não é própria para o veículo selecionado Moto: " + pf.getNome());
             }
         }
-    }
+    }*/
 
     /**
      * @return the pessoa
