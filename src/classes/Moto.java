@@ -10,5 +10,5 @@ package classes;
  * @author geoleite
  */
 public class Moto extends VeiculoAutomotor{
-    
+
 }
