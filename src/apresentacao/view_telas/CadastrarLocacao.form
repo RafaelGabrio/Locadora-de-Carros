@@ -38,18 +38,16 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="comboPessoas" alignment="0" pref="434" max="32767" attributes="0"/>
-                              <Component id="comboVeiculos" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="comboPessoas" alignment="0" max="32767" attributes="0"/>
+                          <Component id="comboVeiculos" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtDtRetorno" min="-2" pref="165" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="txtDtRetorno" min="-2" pref="151" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="txtDtSaida" min="-2" pref="179" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="comoFinalizado" alignment="0" max="32767" attributes="0"/>
+                          <Component id="comboFinalizado" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabel1" min="-2" pref="790" max="-2" attributes="0"/>
@@ -94,7 +92,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comoFinalizado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboFinalizado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -155,6 +153,9 @@
           <Border info="null"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -218,7 +219,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtDtRetorno">
     </Component>
-    <Component class="javax.swing.JComboBox" name="comoFinalizado">
+    <Component class="javax.swing.JComboBox" name="comboFinalizado">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
