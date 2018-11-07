@@ -1,10 +1,12 @@
 package classes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author rafae
  */
-public class PessoaFisica extends Pessoa {
+public class PessoaFisica extends Pessoa implements Serializable{
     private String sexo, cpf, cnh;
     private int idade;
 

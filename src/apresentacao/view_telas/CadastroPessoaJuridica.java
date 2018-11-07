@@ -178,16 +178,19 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         PessoaFisica ps = null;
+        PessoaJuridica pj = null;
         try {
             ps = (PessoaFisica) new PersistenciaArquivo().ler((String) comboFisicaResp.getSelectedItem());
+            pj = new PessoaJuridica("A");
+            pj.setResponsavel(ps);
         } catch (IOException ex) {
             System.out.println("Erro");
         }
         
         String cnpj = txtCNPJ.getText();
        
-        PessoaJuridica pj = new PessoaJuridica(ps.getNome());
-        pj.setResponsavel(ps);
+        
+        
         
         try{
             new PessoaJuridicaNE().cadastrar(pj);
@@ -197,7 +200,6 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(),"ERRO",JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(null, "Nome: " + ps.getNome() + "CNH: " + ps.getCnh());
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

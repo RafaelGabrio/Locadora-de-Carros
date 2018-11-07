@@ -7,7 +7,9 @@ package classes;
 public class PessoaJuridica extends Pessoa {
     private String cnpj;
     private PessoaFisica responsavel;
-
+    
+    
+    
     public PessoaJuridica(String nome) {
         super(nome);
     }
