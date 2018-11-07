@@ -49,7 +49,6 @@ public class PersistenciaArquivo implements Persistencia{
         if (arquivo.exists()) {
             ObjectInputStream objInput = new ObjectInputStream(new FileInputStream(arquivo)); 
             linha = (Object)objInput.readObject();
-            return linha;
         }
       } catch(IOException erro1) {
           System.out.printf("Erro: %s", erro1.getMessage());

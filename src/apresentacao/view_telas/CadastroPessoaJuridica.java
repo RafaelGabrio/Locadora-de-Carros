@@ -1,5 +1,6 @@
 package apresentacao.view_telas;
 
+import classes.Pessoa;
 import classes.PessoaFisica;
 import classes.PessoaJuridica;
 import java.io.File;
@@ -177,30 +178,29 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        PessoaFisica ps = null;
-        PessoaJuridica pj = null;
+        String cpnj = txtCNPJ.getText();
+        PersistenciaArquivo pr = new PersistenciaArquivo();
+        PessoaFisica pf = null;
         try {
-            ps = (PessoaFisica) new PersistenciaArquivo().ler((String) comboFisicaResp.getSelectedItem());
-            pj = new PessoaJuridica("A");
-            pj.setResponsavel(ps);
+            pf = (PessoaFisica) pr.ler(comboFisicaResp.getSelectedItem().toString());
         } catch (IOException ex) {
-            System.out.println("Erro");
+            JOptionPane.showMessageDialog(null, "Não foi possivel ler a pessoa");
         }
         
-        String cnpj = txtCNPJ.getText();
-       
-        
-        
-        
-        try{
-            new PessoaJuridicaNE().cadastrar(pj);
-            JOptionPane.showMessageDialog(null, "Nome da Pessoa Responsável: "+ps.getNome()
-                    +"\nCNPJ: "+cnpj,"Resumo",JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, ex.getMessage(),"ERRO",JOptionPane.ERROR_MESSAGE);
+        if (pf != null){
+            PessoaJuridica pj = new PessoaJuridica(pf.getNome());
+            pj.setCnpj(cpnj);
+            pj.setResponsavel(pf);
+            
+            try{
+                new PessoaJuridicaNE().cadastrar(pj);
+                JOptionPane.showMessageDialog(null, "Pessoa física resp: "+pj.getResponsavel()
+                +"\nCNPJ: "+pj.getCnpj(), "Resumo", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNPJActionPerformed
