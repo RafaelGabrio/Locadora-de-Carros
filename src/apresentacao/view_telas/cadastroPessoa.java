@@ -20,6 +20,8 @@ public class cadastroPessoa extends javax.swing.JFrame {
      */
     public cadastroPessoa() {
         initComponents();
+        
+        System.out.println();
     }
 
     /**
