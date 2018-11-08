@@ -50,7 +50,6 @@ public class home extends javax.swing.JFrame {
         setTitle("Home");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(820, 560));
-        setPreferredSize(new java.awt.Dimension(800, 560));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/realmob.png"))); // NOI18N
@@ -114,9 +113,10 @@ public class home extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/kisspng-car-parking-system-computer-icons-car-parking-syst-tow-truck-icon-5b45762a0092f8.9897320215312788900024.jpg"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/plus_21081_1.png"))); // NOI18N
         jMenu4.setText("Locação");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/plus_21081_1.png"))); // NOI18N
         jMenuItem3.setText("Realizar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
