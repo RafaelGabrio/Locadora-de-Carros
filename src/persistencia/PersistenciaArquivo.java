@@ -26,7 +26,7 @@ public class PersistenciaArquivo implements Persistencia{
     protected ObjectInputStream objInput;
     
     @Override
-    public void salvar(String caminho, Object objeto) throws IOException {
+    public void salvar(Object objeto) throws IOException {
         /*BufferedWriter buffWrite = new BufferedWriter(new FileWriter(caminho));
         buffWrite.append(objeto+"\n");
         buffWrite.close();

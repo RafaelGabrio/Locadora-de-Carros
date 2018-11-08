@@ -12,8 +12,8 @@ public class PessoaJuridicaPersistencia {
     
     public PessoaJuridicaPersistencia(PessoaJuridica p) throws IOException{
         persistencia = new PersistenciaArquivo();
-        persistencia.salvar("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
-                + "\\trabalholocadora\\trabalholocadora\\BD\\PessoasJuridicas\\PessoaJ.dat", p);
+        persistencia.criar("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\PessoasJuridicas\\PessoaJ.dat");
+        persistencia.salvar(p);
     }
     
 }

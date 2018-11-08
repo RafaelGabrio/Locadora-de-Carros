@@ -11,5 +11,5 @@ public interface Persistencia {
     
     public Object ler(String caminho) throws IOException;
     
-    public void salvar(String caminho, Object objeto) throws IOException;
+    public void salvar(Object objeto) throws IOException;
 }
