@@ -1,9 +1,7 @@
 package apresentacao.view_telas;
 
-import classes.Pessoa;
 import classes.PessoaFisica;
 import classes.PessoaJuridica;
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,33 +21,42 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
      */
     public CadastroPessoaJuridica(){
         initComponents();
-        
-        /*PessoaFisica pf1 = new PessoaFisica("Gabi");
-        pf1.setCnh("A");
-        pf1.setIdade(19);
-        pf1.setSexo("Feminino");
-        pf1.setCpf("111.111.111-90");
-        
-        PessoaFisica pf2 = new PessoaFisica("Gabi2");
-        pf2.setCnh("A");
-        pf2.setIdade(19);
-        pf2.setSexo("Feminino");
-        pf2.setCpf("111.111.111-90");*/
-        
-        //JOptionPane.showMessageDialog(null,pf1.getNome());
-        File arquivos[];
-        File diretorio = new File("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas");
-        arquivos = diretorio.listFiles();
-        for(int i = 0; i < arquivos.length; i++){
-            comboFisicaResp.addItem(arquivos[i].toString());
+        int cont = 0;
+        PersistenciaArquivo arq = new PersistenciaArquivo();
+        String caminho = "C:\\Users\\rafae\\Documents\\NetBeansProjects"
+                    + "\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat";
+        try {
+            /*PessoaFisica pf1 = new PessoaFisica("Gabi");
+            pf1.setCnh("A");
+            pf1.setIdade(19);
+            pf1.setSexo("Feminino");
+            pf1.setCpf("111.111.111-90");
+            
+            PessoaFisica pf2 = new PessoaFisica("Gabi2");
+            pf2.setCnh("A");
+            pf2.setIdade(19);
+            pf2.setSexo("Feminino");
+            pf2.setCpf("111.111.111-90");*/
+            
+            //JOptionPane.showMessageDialog(null,pf1.getNome());
+            
+            /*comboFisicaResp.addItem(pf1);
+            comboFisicaResp.addItem(pf2);*/
+            
+            cont = arq.ler(caminho).size();
+        } catch (IOException ex) {
+            Logger.getLogger(CadastroPessoaJuridica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        /*comboFisicaResp.addItem(pf1);        
-        comboFisicaResp.addItem(pf2);*/
-
-        
-        
-        
+        PessoaFisica p = null;
+        for (int i = 0; i < cont; i++){
+            try {
+                p = (PessoaFisica) arq.ler(caminho).get(i);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+            comboFisicaResp.addItem(p);
+        }
+ 
     }
 
     /**
@@ -119,30 +126,29 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 680, Short.MAX_VALUE)
-                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboFisicaResp, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(594, Short.MAX_VALUE)
+                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(310, 310, 310)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
+                        .addGap(89, 89, 89)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(310, 310, 310)
-                        .addComponent(jLabel2)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboFisicaResp, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,28 +184,19 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        String cpnj = txtCNPJ.getText();
-        PersistenciaArquivo pr = new PersistenciaArquivo();
-        PessoaFisica pf = null;
-        try {
-            pf = (PessoaFisica) pr.ler(comboFisicaResp.getSelectedItem().toString());
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel ler a pessoa");
-        }
+        PessoaFisica pr = (PessoaFisica)comboFisicaResp.getSelectedItem();
+        String cnpj = txtCNPJ.getText();
+        //Atribui aos atributos de Pessoa Juridica
+        PessoaJuridica pj = new PessoaJuridica(pr.getNome());
+        pj.setCnpj(cnpj);
+        pj.setResponsavel(pr);
         
-        if (pf != null){
-            PessoaJuridica pj = new PessoaJuridica(pf.getNome());
-            pj.setCnpj(cpnj);
-            pj.setResponsavel(pf);
-            
-            try{
-                new PessoaJuridicaNE().cadastrar(pj);
-                JOptionPane.showMessageDialog(null, "Pessoa física resp: "+pj.getResponsavel()
-                +"\nCNPJ: "+pj.getCnpj(), "Resumo", JOptionPane.INFORMATION_MESSAGE);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
+        try {
+            new PessoaJuridicaNE().cadastrar(pj);
+            JOptionPane.showMessageDialog(null, "Nome do Respons.: "+pr.getNome()
+            +"\nCNPJ: "+cnpj, "Cadastrado Com Sucesso ... Resumo",JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -246,7 +243,7 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
         }); 
     }
 
-    public JComboBox<String> getTxtFisicaResp() {
+    public JComboBox<Object> getTxtFisicaResp() {
         return comboFisicaResp;
     }
     
@@ -254,7 +251,7 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JComboBox<String> comboFisicaResp;
+    private javax.swing.JComboBox<Object> comboFisicaResp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

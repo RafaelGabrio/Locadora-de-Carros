@@ -234,7 +234,7 @@ public class CadastrarLocacao extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         Pessoa p1 = null;
-        try {
+        /*try {
             p1 = (Pessoa) new PersistenciaArquivo().ler(comboPessoas.getSelectedItem().toString());
         } catch (IOException ex) {
             System.out.println("Não foi possivel ler a pessoa");
@@ -280,18 +280,18 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         ll.setFinalizado(status1);
         ll.setDtSaida(dtSaida);*/
         
-        try{
+        /*try{
             new LocacaoNE().cadastrar(l, p1, v1);
             /*JOptionPane.showMessageDialog(null, "Nome Pessoa: "+p1.getNome()+"\nVeículo: "+v1.getMarca()
-                    +"\nData Retorno: "+dtRetorno+"\nData Saída: "+dtSaida,"Resumo",JOptionPane.INFORMATION_MESSAGE); */
+                    +"\nData Retorno: "+dtRetorno+"\nData Saída: "+dtSaida,"Resumo",JOptionPane.INFORMATION_MESSAGE); 
 
             JOptionPane.showMessageDialog(null, "Locação cadastrado com sucesso");
 
         } catch(Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        } 
-        
+        } */
+       
         
         
         
