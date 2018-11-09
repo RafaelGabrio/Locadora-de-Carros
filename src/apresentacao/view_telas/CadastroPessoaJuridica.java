@@ -25,23 +25,15 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
 
         String caminho = "C:\\Users\\rafae\\Documents\\NetBeansProjects"
                     + "\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat";
-        
-        /*try {
-            
+        int cont;
+        try {
             cont = arq.ler(caminho).size();
+            for (int i = 0; i < cont; i++){
+                comboFisicaResp.addItem(arq.ler(caminho).get(i));
+            }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        PessoaFisica p = null;
-        for (int i = 0; i < cont; i++){
-            try {
-                p = (PessoaFisica) arq.ler(caminho).get(0);
-                comboFisicaResp.addItem(p);
-
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }*/
         
  
     }

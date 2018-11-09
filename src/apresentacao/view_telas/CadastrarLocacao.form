@@ -25,10 +25,6 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jLabel1" min="-2" pref="834" max="-2" attributes="0"/>
           <Group type="102" attributes="0">
-              <EmptySpace min="279" pref="279" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="290" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
               <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
@@ -61,6 +57,11 @@
               <Component id="btnCadastrar" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
               <Component id="btnCancelar" min="-2" pref="120" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="290" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

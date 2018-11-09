@@ -29,40 +29,35 @@ public class CadastrarLocacao extends javax.swing.JFrame {
      */
     public CadastrarLocacao() {
         initComponents();
-        /*PessoaFisica pf1 = new PessoaFisica("Gabi");
-        pf1.setCnh("A");
-        pf1.setIdade(19);
-        pf1.setSexo("Feminino");
-        pf1.setCpf("111.111.111-90");
         
-        PessoaFisica pf2 = new PessoaFisica("Gabi2");
-        pf2.setCnh("A");
-        pf2.setIdade(19);
-        pf2.setSexo("Feminino");
-        pf2.setCpf("111.111.111-90");
+        String caminhoPes = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
+                + "\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat";
+        String caminhoveiculoAut = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
+                + "\\trabalholocadora\\trabalholocadora\\BD\\Veiculos\\Veiculo_Auto.dat";
+        String caminhoveiculoAnin = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
+                + "\\trabalholocadora\\trabalholocadora\\BD\\Veiculos\\Veiculo_Ani.dat";
+        int cont;
+        PersistenciaArquivo arq = new PersistenciaArquivo();
         
-        Moto m1 = new Moto();
-        m1.setAno(200);
-        m1.setKm(386483);
-        m1.setMarca("honda");
-        m1.setModelo("hod");
-        m1.setTipoCompustivel("gasolina");*/
-        
-        
-        
-        //JOptionPane.showMessageDialog(null,pf1.getNome());
-      
-        File arquivos[];
-        File diretorio = new File("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas");
-        arquivos = diretorio.listFiles();
-        for(int i = 0; i < arquivos.length; i++){
-            comboPessoas.addItem(arquivos[i].toString());
-        }
-        
-        File diretorioB = new File("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Veiculos");
-        File arquivosB[] = diretorioB.listFiles();
-        for (int i = 0; i < arquivosB.length; i++){
-            comboVeiculos.addItem(arquivosB[i].toString());
+        try {
+            //Este for preenche o combobox de PESSOA
+            cont = arq.ler(caminhoPes).size();
+            for(int i = 0; i < cont; i++){
+                comboPessoas.addItem(arq.ler(caminhoPes).get(i));
+            }
+            
+            //Este for preenche o combobox com VeiculoAutomotor
+            cont = arq.ler(caminhoveiculoAut).size();
+            for (int i = 0; i < cont; i++){
+                comboVeiculos.addItem(arq.ler(caminhoveiculoAut).get(i));
+            }
+            
+            cont = arq.ler(caminhoveiculoAnin).size();
+            for (int i = 0; i < cont; i++){
+                comboVeiculos.addItem(arq.ler(caminhoveiculoAnin).get(i));
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
         
     }
@@ -148,9 +143,6 @@ public class CadastrarLocacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(279, 279, 279)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
@@ -179,6 +171,10 @@ public class CadastrarLocacao extends javax.swing.JFrame {
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

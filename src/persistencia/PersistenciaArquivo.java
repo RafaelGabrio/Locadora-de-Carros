@@ -24,16 +24,16 @@ public class PersistenciaArquivo implements Persistencia{
     protected ArrayList<Object> objetos;
 
     @Override
-    public Object ler(String caminho) throws IOException {
+    public ArrayList<Object> ler(String caminho) throws IOException {
+        ArrayList<Object> objs = null;
         try {
             File file = new File(caminho);
             objInput = new ObjectInputStream(new FileInputStream(file));
-            ArrayList<Object> objs = (ArrayList<Object>) objInput.readObject();
-            return objs;
+            objs = (ArrayList<Object>) objInput.readObject();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        return null;
+        return objs;
     }
 
     @Override
