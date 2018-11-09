@@ -13,7 +13,6 @@ public class PessoaFisicaPersistencia {
     
     public PessoaFisicaPersistencia(PessoaFisica p) throws IOException{
         persistencia = new PersistenciaArquivo();
-        persistencia.criar("C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat");
-        persistencia.salvar(p);
+        persistencia.salvar(p, "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat");
     }
 }

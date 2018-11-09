@@ -9,6 +9,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,50 +21,41 @@ public class PersistenciaArquivo implements Persistencia{
     
     protected ObjectOutputStream objOutput;
     protected ObjectInputStream objInput;
-    
-    @Override
-    public void salvar(Object objeto) throws IOException {
-        /*BufferedWriter buffWrite = new BufferedWriter(new FileWriter(caminho));
-        buffWrite.append(objeto+"\n");
-        buffWrite.close();
-        */
-        try{
-            objOutput.writeObject(objeto);
-            objOutput.close();
-        } catch(IOException ex1){
-            throw new IOException(ex1.getMessage());
-        }
-    }
+    protected ArrayList<Object> objetos;
 
     @Override
-    public List<Object> ler(String caminho) throws IOException {
-        /*BufferedReader buffRead = new BufferedReader(new FileReader(caminho));
-        Object linha = (Object)buffRead.readLine().getClass();
-        buffRead.close();*/
-        List<Object> objetos = new ArrayList<Object>();
-        this.criar(caminho);
+    public Object ler(String caminho) throws IOException {
         try {
-            //objInput = new ObjectInputStream(new FileInputStream(caminho));
-            while (true) {
-                objetos.add((Object) objInput.readObject());
-                objInput.close();
-                JOptionPane.showMessageDialog(null, objetos);
-
-            }       
-        } catch (EOFException ex) {
-            // fim da leitura aqui
+            File file = new File(caminho);
+            objInput = new ObjectInputStream(new FileInputStream(file));
+            ArrayList<Object> objs = (ArrayList<Object>) objInput.readObject();
+            return objs;
         } catch (Exception ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
-     return objetos;
+        return null;
     }
 
     @Override
-    public void criar(String caminho) throws IOException{
-        File file = new File(caminho);
-        if (file.exists()) {
-            objInput = new ObjectInputStream(new FileInputStream(file));
+    public void salvar(Object objeto, String caminho) throws IOException {
+        try {
+            File file = new File(caminho);
+            if (file.exists()) {
+                ArrayList<Object> objs = (ArrayList<Object>) this.ler(caminho);
+                objOutput = new ObjectOutputStream(new FileOutputStream(file));
+                objs.add(objeto);
+                objOutput.writeObject(objs);
+                objOutput.close();
+            } else {
+                objOutput = new ObjectOutputStream(new FileOutputStream(file));
+                ArrayList<Object> objs = new ArrayList<Object>();
+                objs.add(objeto);
+                objOutput.writeObject(objs);
+                objOutput.close();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
-        objOutput = new ObjectOutputStream(new FileOutputStream(file, true));
     }
-}  
+    
+}

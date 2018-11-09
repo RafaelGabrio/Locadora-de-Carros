@@ -21,27 +21,12 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
      */
     public CadastroPessoaJuridica(){
         initComponents();
-        int cont = 0;
         PersistenciaArquivo arq = new PersistenciaArquivo();
+
         String caminho = "C:\\Users\\rafae\\Documents\\NetBeansProjects"
                     + "\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat";
-        try {
-            /*PessoaFisica pf1 = new PessoaFisica("Gabi");
-            pf1.setCnh("A");
-            pf1.setIdade(19);
-            pf1.setSexo("Feminino");
-            pf1.setCpf("111.111.111-90");
-            
-            PessoaFisica pf2 = new PessoaFisica("Gabi2");
-            pf2.setCnh("A");
-            pf2.setIdade(19);
-            pf2.setSexo("Feminino");
-            pf2.setCpf("111.111.111-90");*/
-            
-            //JOptionPane.showMessageDialog(null,pf1.getNome());
-            
-            /*comboFisicaResp.addItem(pf1);
-            comboFisicaResp.addItem(pf2);*/
+        
+        /*try {
             
             cont = arq.ler(caminho).size();
         } catch (IOException ex) {
@@ -56,7 +41,8 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
-        }
+        }*/
+        
  
     }
 
