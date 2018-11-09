@@ -10,6 +10,7 @@ import classes.Caminhao;
 import classes.Carro;
 import classes.Locacao;
 import classes.LocacaoException;
+import classes.Locadora;
 import classes.Moto;
 import classes.Pessoa;
 import classes.PessoaFisica;

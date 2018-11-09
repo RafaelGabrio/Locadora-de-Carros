@@ -5,6 +5,9 @@
  */
 package classes;
 
+import java.io.IOException;
+import persistencia.PersistenciaArquivo;
+
 /**
  *
  * @author Meire
@@ -17,9 +20,10 @@ public class Locadora {
     private final static int PATINS = 4;
     private final static int SKATE = 5;
     private Locacao[] locacoes = new Locacao[10];
-    private int qnt;
+    private String caminho = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Locação\\Locacao.dat";
+    private int qnt = 0;
 
-    public void add(Locacao locacao) {
+    public void add(Locacao locacao) throws IOException {
         if (qnt < locacoes.length) {
             locacoes[qnt++] = locacao;
         }
@@ -90,6 +94,7 @@ public class Locadora {
     }
 
     public String quantidadeLocacoesPorVeiculo() {
+        String result = null;
         int[] qnts = new int[6];
         for (int i = 0; i < qnt; i++) {
             Locacao loc = locacoes[i];
@@ -112,28 +117,28 @@ public class Locadora {
         }
 
         for (int i = 0; i < qnts.length; i++) {
-
+            
             switch (i) {
                 case CARRO:
-                    System.out.println("Carro:" + qnts[CARRO]);
+                    result = ("Carro:" + qnts[CARRO]+"\n");
                     break;
                 case CAMINHAO:
-                    System.out.println("Caminhão:" + qnts[CAMINHAO]);
+                    result += ("Caminhão:" + qnts[CAMINHAO]+"\n");
                     break;
                 case MOTO:
-                    System.out.println("Moto:" + qnts[MOTO]);
+                    result += ("Moto:" + qnts[MOTO]+"\n");
                     break;
                 case BIKE:
-                    System.out.println("Bike:" + qnts[BIKE]);
+                    result += ("Bike:" + qnts[BIKE]+"\n");
                     break;
                 case SKATE:
-                    System.out.println("Skate:" + qnts[SKATE]);
+                    result += ("Skate:" + qnts[SKATE]+"\n");
                     break;
                 case PATINS:
-                    System.out.println("Patins:" + qnts[PATINS]);
-                    break;
+                   result += ("Patins:" + qnts[PATINS]+"\n");
+                   break;
             }
         }
-        return null;
+        return result;
     }
 }
