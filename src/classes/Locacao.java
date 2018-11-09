@@ -18,17 +18,17 @@ public class Locacao implements Serializable {
     private String dtRetorno, dtSaida;
     private boolean finalizado;
 
-    public Locacao(Pessoa pessoa, Veiculo veiculo) throws Exception {
-        existeVeiculoEPessoa(pessoa, veiculo);
+    public Locacao(Pessoa pessoa, Veiculo veiculo){
+        //existeVeiculoEPessoa(pessoa, veiculo);
         setPessoa(pessoa);
         setVeiculo(veiculo);
     }
 
-    private void existeVeiculoEPessoa(Pessoa pessoa, Veiculo veiculo) throws Exception {
+    /*private void existeVeiculoEPessoa(Pessoa pessoa, Veiculo veiculo) throws Exception {
         if (pessoa == null || veiculo == null) {
             throw new LocacaoException("Locação não pode ser realizada, por favor informe um veículo e uma pessoa válida");
         }
-    }
+    }*/
 
     /*private void possuiCNH(Pessoa pessoa, Veiculo veiculo) throws Exception {
         if (veiculo instanceof VeiculoAutomotor) {

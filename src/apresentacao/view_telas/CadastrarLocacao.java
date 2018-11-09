@@ -42,20 +42,20 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         try {
             //Este for preenche o combobox de PESSOA
             cont = arq.ler(caminhoPes).size();
-            for(int i = 0; i < cont; i++){
-                comboPessoas.addItem(arq.ler(caminhoPes).get(i));
-            }
+                for(int i = 0; i < cont; i++){
+                    comboPessoas.addItem(arq.ler(caminhoPes).get(i));
+                }
             
             //Este for preenche o combobox com VeiculoAutomotor
             cont = arq.ler(caminhoveiculoAut).size();
-            for (int i = 0; i < cont; i++){
-                comboVeiculos.addItem(arq.ler(caminhoveiculoAut).get(i));
-            }
+                for (int i = 0; i < cont; i++){
+                    comboVeiculos.addItem(arq.ler(caminhoveiculoAut).get(i));
+                }
             
             cont = arq.ler(caminhoveiculoAnin).size();
-            for (int i = 0; i < cont; i++){
-                comboVeiculos.addItem(arq.ler(caminhoveiculoAnin).get(i));
-            }
+                for (int i = 0; i < cont; i++){
+                    comboVeiculos.addItem(arq.ler(caminhoveiculoAnin).get(i));
+                }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -143,30 +143,6 @@ public class CadastrarLocacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(comboPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(jLabel4)
-                .addGap(6, 6, 6)
-                .addComponent(comboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(jLabel7)
-                .addGap(0, 0, 0)
-                .addComponent(txtDtSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboFinalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(530, 530, 530)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -175,6 +151,34 @@ public class CadastrarLocacao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(250, 250, 250))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGap(77, 77, 77)
+                    .addComponent(jLabel6)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(comboFinalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(100, 100, 100)
+                    .addComponent(jLabel5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel7)
+                    .addGap(224, 224, 224)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(comboPessoas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtDtSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(6, 6, 6)
+                            .addComponent(comboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,12 +201,12 @@ public class CadastrarLocacao extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel7)
-                    .addComponent(txtDtSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7)))
+                    .addComponent(txtDtSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboFinalizado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,22 +234,15 @@ public class CadastrarLocacao extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         Pessoa p1 = null;
-        /*try {
-            p1 = (Pessoa) new PersistenciaArquivo().ler(comboPessoas.getSelectedItem().toString());
-        } catch (IOException ex) {
-            System.out.println("Não foi possivel ler a pessoa");
-        }
+        p1 = (Pessoa) comboPessoas.getSelectedItem();
         Veiculo v1 = null;
-        try {
-            v1 = (Veiculo) new PersistenciaArquivo().ler((String) comboVeiculos.getSelectedItem());
-        } catch (IOException ex) {
-            System.out.println("Não foi possível ler o veículo");
-        }
+        v1 = (Veiculo) comboVeiculos.getSelectedItem();
         String dtRetorno = txtDtRetorno.getText();
         String dtSaida = txtDtSaida.getText();
         String status = (String) comboFinalizado.getSelectedItem().toString();
         boolean status1 = false;
-        if (status == "Não finalizado") {
+        
+        if ("Não finalizado".equals(status)) {
               status1 = false;
         }
         else
@@ -254,31 +251,26 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         }
         //boolean status =  Boolean.parseBoolean(comboFinalizado.getSelectedItem().toString());
         
-        JOptionPane.showMessageDialog(null, status1);
-        
         Locacao l = null;
-        try {
+        /*try {
             l = new Locacao(p1,v1);
             new LocacaoNE().cadastrar(l, p1, v1);
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
+        
+        l = new Locacao(p1,v1);
+        l.setDtRetorno(dtRetorno);
+        l.setFinalizado(status1);
+        l.setDtSaida(dtSaida);
         l.setDtRetorno(dtRetorno);
         l.setFinalizado(status1);
         l.setDtSaida(dtSaida);
         
-        //assim da erro
-        /*Locacao ll = null;
-        ll.setPessoa(p1);
-        ll.setVeiculo(v1);
-        ll.setDtRetorno(dtRetorno);
-        ll.setFinalizado(status1);
-        ll.setDtSaida(dtSaida);*/
-        
-        /*try{
+        try{
             new LocacaoNE().cadastrar(l, p1, v1);
-            /*JOptionPane.showMessageDialog(null, "Nome Pessoa: "+p1.getNome()+"\nVeículo: "+v1.getMarca()
+            JOptionPane.showMessageDialog(null, "Nome Pessoa: "+p1.getNome()+"\nVeículo: "+v1.getMarca()
                     +"\nData Retorno: "+dtRetorno+"\nData Saída: "+dtSaida,"Resumo",JOptionPane.INFORMATION_MESSAGE); 
 
             JOptionPane.showMessageDialog(null, "Locação cadastrado com sucesso");
@@ -286,7 +278,7 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         } catch(Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        } */
+        } 
        
         
         

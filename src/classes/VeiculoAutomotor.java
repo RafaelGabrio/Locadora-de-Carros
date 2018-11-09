@@ -57,6 +57,6 @@ public class VeiculoAutomotor extends Veiculo{
     
     @Override
     public String toString(){
-        return "Modelo: "+getModelo()+";  Km atual: "+this.getKm()+";  Marca: "+this.getMarca();
+        return "Modelo: "+getModelo()+";  Km atual: "+this.getKm()+";  Marca: "+this.getMarca()+";  Tipo: "+this.getClass();
     }
 }

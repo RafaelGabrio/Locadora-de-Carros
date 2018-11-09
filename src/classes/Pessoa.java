@@ -6,7 +6,7 @@ import java.io.Serializable;
  *
  * @author rafae
  */
-public class Pessoa implements Serializable {
+public class Pessoa implements Serializable{
     private String nome;
     
     public Pessoa(String nome){
