@@ -45,16 +45,17 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
             
             cont = arq.ler(caminho).size();
         } catch (IOException ex) {
-            Logger.getLogger(CadastroPessoaJuridica.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
         PessoaFisica p = null;
         for (int i = 0; i < cont; i++){
             try {
-                p = (PessoaFisica) arq.ler(caminho).get(i);
+                p = (PessoaFisica) arq.ler(caminho).get(0);
+                comboFisicaResp.addItem(p);
+
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
-            comboFisicaResp.addItem(p);
         }
  
     }
