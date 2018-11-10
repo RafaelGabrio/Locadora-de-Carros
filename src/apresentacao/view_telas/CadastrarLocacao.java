@@ -130,7 +130,7 @@ public class CadastrarLocacao extends javax.swing.JFrame {
             }
         });
 
-        comboFinalizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Finalizado", "Não finalizado" }));
+        comboFinalizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não finalizado" }));
         comboFinalizado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboFinalizadoActionPerformed(evt);

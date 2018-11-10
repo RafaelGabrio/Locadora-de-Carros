@@ -52,9 +52,9 @@
                                   <Component id="nAno" max="32767" attributes="0"/>
                                   <Component id="txtMarca" max="32767" attributes="0"/>
                                   <Component id="txtKm" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtTipoCombustivel" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtModelo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="comboTipo" alignment="0" pref="309" max="32767" attributes="0"/>
+                                  <Component id="comboTipoCombustivel" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -95,7 +95,7 @@
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTipoCombustivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboTipoCombustivel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -206,8 +206,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtKm">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTipoCombustivel">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtModelo">
     </Component>
     <Component class="javax.swing.JComboBox" name="comboTipo">
@@ -224,6 +222,22 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboTipoActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboTipoCombustivel">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="etanol"/>
+            <StringItem index="1" value="gasolina"/>
+            <StringItem index="2" value="flex"/>
+            <StringItem index="3" value="diesel"/>
+            <StringItem index="4" value="g&#xe1;s"/>
+          </StringArray>
+        </Property>
+      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

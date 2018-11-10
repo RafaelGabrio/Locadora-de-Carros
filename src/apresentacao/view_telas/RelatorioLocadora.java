@@ -10,6 +10,7 @@ import classes.Locadora;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import persistencia.PersistenciaArquivo;
 
 
@@ -38,6 +39,7 @@ public class RelatorioLocadora extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
         
+
         txtTotalLocacao.setText(Integer.toString(locadora.getQuantidade()));
         txtLocacaoEmAberto.setText(Integer.toString(locadora.getQuanitadeNaoFinalizadas()));
         txtTipoComLocacao.setText(locadora.getQntTipoVeiculoNaoFinalizado());
@@ -92,7 +94,7 @@ public class RelatorioLocadora extends javax.swing.JFrame {
 
         jLabel3.setText("Quantidade de locações realizadas até o momento:");
 
-        jLabel4.setText("Quantas locações ainda não foram realizadas:");
+        jLabel4.setText("Quantas locações ainda não foram finalizadas:");
 
         jLabel5.setText("Qual tipo de veículo possui mais locações em aberto:");
 

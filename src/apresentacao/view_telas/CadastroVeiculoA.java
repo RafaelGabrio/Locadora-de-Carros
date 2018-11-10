@@ -48,9 +48,9 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         nAno = new javax.swing.JSpinner();
         txtMarca = new javax.swing.JTextField();
         txtKm = new javax.swing.JTextField();
-        txtTipoCombustivel = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         comboTipo = new javax.swing.JComboBox<>();
+        comboTipoCombustivel = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +99,8 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
             }
         });
 
+        comboTipoCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "etanol", "gasolina", "flex", "diesel", "gás" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,9 +130,9 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
                                     .addComponent(nAno)
                                     .addComponent(txtMarca)
                                     .addComponent(txtKm)
-                                    .addComponent(txtTipoCombustivel)
                                     .addComponent(txtModelo)
-                                    .addComponent(comboTipo, 0, 309, Short.MAX_VALUE))))
+                                    .addComponent(comboTipo, 0, 309, Short.MAX_VALUE)
+                                    .addComponent(comboTipoCombustivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -160,7 +162,7 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtTipoCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboTipoCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -191,7 +193,7 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
         String marca = txtMarca.getText();
         int ano = (int)nAno.getValue();
         int km = Integer.parseInt(txtKm.getText());
-        String tipoComb = txtTipoCombustivel.getText();
+        String tipoComb = comboTipoCombustivel.getSelectedItem().toString();
         String modelo = txtModelo.getText();
         String tipo = comboTipo.getSelectedItem().toString();
         
@@ -289,6 +291,7 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JComboBox<String> comboTipo;
+    private javax.swing.JComboBox<String> comboTipoCombustivel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -301,6 +304,5 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
     private javax.swing.JTextField txtKm;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtTipoCombustivel;
     // End of variables declaration//GEN-END:variables
 }
