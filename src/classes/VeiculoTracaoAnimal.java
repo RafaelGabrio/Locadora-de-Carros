@@ -7,6 +7,6 @@ package classes;
 public class VeiculoTracaoAnimal extends Veiculo{ 
     @Override
     public String toString(){
-        return "Marca: "+this.getMarca()+";  Ano: "+this.getAno()+";  Tipo: "+this.getClass();
+        return "Marca: "+this.getMarca()+" - Tipo: "+this.getClass();
     }
 }

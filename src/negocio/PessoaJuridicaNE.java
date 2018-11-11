@@ -14,9 +14,11 @@ public class PessoaJuridicaNE {
         /*if (p.getCnpj().length() < 14) {
             throw new Exception("O campo CNPJ não foi preenchido correntamente \n"
                     + "Dica: um cnpj não tem menos que 14 digitos ou não pode ficar vazio");}*/
-        if (p.getCnpj().length() > 14){
+        if (p.getCnpj().length() > 18 || p.getCnpj().length() < 18){
             throw new Exception("O campo CNPJ n foi preenchido corretamente");
         }
+        if (p == null)
+            throw new Exception("É necessário preencher os campos para que possa efetuar o cadastro");
         new PessoaJuridicaPersistencia(p);
     }
     

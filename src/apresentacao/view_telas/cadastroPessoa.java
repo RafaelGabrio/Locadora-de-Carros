@@ -44,21 +44,29 @@ public class cadastroPessoa extends javax.swing.JFrame {
         comboCNH = new javax.swing.JComboBox<>();
         comboSexo = new javax.swing.JComboBox<>();
         txtCPF = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter formato = new javax.swing.text.MaskFormatter("###.###.###-##");
+            txtCPF = new javax.swing.JFormattedTextField(formato);
+        }
+        catch (Exception e){
+        }
         nIdade = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
         txtNome1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 51));
         jLabel2.setText("Cadastro de pessoa física");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 290, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 290, 40));
 
         btnCancelar.setBackground(new java.awt.Color(255, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Voltar");
         btnCancelar.setBorder(null);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,34 +89,57 @@ public class cadastroPessoa extends javax.swing.JFrame {
         });
         getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 120, 30));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Nome:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 40, 10));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 40, 30));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("CPF:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 60, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 30, 30));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Sexo:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 30, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 40, 30));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("CNH:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 30, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 30, 30));
 
+        comboCNH.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        comboCNH.setForeground(new java.awt.Color(51, 51, 51));
         comboCNH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Escolha uma opção--", "A", "B", "D" }));
-        getContentPane().add(comboCNH, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 230, -1));
+        getContentPane().add(comboCNH, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 230, 30));
 
+        comboSexo.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        comboSexo.setForeground(new java.awt.Color(51, 51, 51));
         comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Escolha uma opção--", "Feminino", "Masculino" }));
         comboSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboSexoActionPerformed(evt);
             }
         });
-        getContentPane().add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 230, -1));
-        getContentPane().add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 430, 30));
-        getContentPane().add(nIdade, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 430, 30));
+        getContentPane().add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 230, 30));
 
+        txtCPF.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        txtCPF.setForeground(new java.awt.Color(51, 51, 51));
+        getContentPane().add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 330, 30));
+
+        nIdade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(nIdade, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 120, 30));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Idade:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 60, 20));
-        getContentPane().add(txtNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 430, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 40, 30));
+
+        txtNome1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        txtNome1.setForeground(new java.awt.Color(51, 51, 51));
+        getContentPane().add(txtNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 330, 30));
+
+        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Arial", 2, 10)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("Apenas Números");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -195,6 +226,7 @@ public class cadastroPessoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSpinner nIdade;
     private javax.swing.JTextField txtCPF;

@@ -30,5 +30,8 @@ public class PessoaJuridica extends Pessoa{
         this.responsavel = responsavel;
     }
     
-    
+    @Override
+    public String toString(){
+        return "PJ -> Pessoa Física Resp.: "+this.getResponsavel()+" - CNPJ: "+this.getCnpj();
+    }
 }

@@ -50,6 +50,6 @@ public class PessoaFisica extends Pessoa{
     
     @Override
     public String toString(){
-        return "Nome: "+this.getNome()+"; CPF: "+this.getCpf()+"; CNH: "+this.getCnh();
+        return "PF -> Nome: "+this.getNome()+" - CNH: "+this.getCnh();
     }
 }

@@ -42,8 +42,8 @@ public class Veiculo implements Serializable{
         this.ano = ano;
     }
 
-    @Override
+    /*@Override
     public String toString(){
         return getMarca();
-    }
+    }*/
 }

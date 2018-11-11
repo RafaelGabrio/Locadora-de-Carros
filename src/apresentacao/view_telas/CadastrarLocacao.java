@@ -32,33 +32,63 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         
         String caminhoPes = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
                 + "\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat";
+        String caminhoJud = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
+                + "\\trabalholocadora\\trabalholocadora\\BD\\PessoasJuridicas\\PessoaJ.dat";
         String caminhoveiculoAut = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
                 + "\\trabalholocadora\\trabalholocadora\\BD\\Veiculos\\Veiculo_Auto.dat";
         String caminhoveiculoAnin = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
                 + "\\trabalholocadora\\trabalholocadora\\BD\\Veiculos\\Veiculo_Ani.dat";
         int cont;
         PersistenciaArquivo arq = new PersistenciaArquivo();
+        File file = new File(caminhoPes);
         
-        try {
+        if (file.exists()){
+            try {
             //Este for preenche o combobox de PESSOA
             cont = arq.ler(caminhoPes).size();
                 for(int i = 0; i < cont; i++){
                     comboPessoas.addItem(arq.ler(caminhoPes).get(i));
                 }
-            
-            //Este for preenche o combobox com VeiculoAutomotor
-            cont = arq.ler(caminhoveiculoAut).size();
+            } catch(IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        file = new File(caminhoJud);
+        if (file.exists()){
+            try {
+                //Este for preenche o combobox com VeiculoAutomotor
+                cont = arq.ler(caminhoJud).size();
+                for (int i = 0; i < cont; i++){
+                    comboPessoas.addItem(arq.ler(caminhoJud).get(i));
+                }
+            } catch(IOException ex) {
+            System.out.println(ex.getMessage());
+            }
+        }
+        file = new File(caminhoveiculoAut);
+        if (file.exists()){
+            try {
+                //Este for preenche o combobox com VeiculoAutomotor
+                cont = arq.ler(caminhoveiculoAut).size();
                 for (int i = 0; i < cont; i++){
                     comboVeiculos.addItem(arq.ler(caminhoveiculoAut).get(i));
                 }
-            
-            cont = arq.ler(caminhoveiculoAnin).size();
+            } catch(IOException ex) {
+            System.out.println(ex.getMessage());
+            }
+        }
+        file = new File(caminhoveiculoAnin);
+        if (file.exists()){
+            try {
+                cont = arq.ler(caminhoveiculoAnin).size();
                 for (int i = 0; i < cont; i++){
                     comboVeiculos.addItem(arq.ler(caminhoveiculoAnin).get(i));
                 }
-        } catch (IOException ex) {
+            } catch (IOException ex) {
             System.out.println(ex.getMessage());
+            }
         }
+            
         
     }
 
@@ -83,10 +113,23 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         comboPessoas = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         txtDtSaida = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter formato = new javax.swing.text.MaskFormatter("##/##/####");
+            txtDtSaida= new javax.swing.JFormattedTextField(formato);
+        }
+        catch (Exception e){
+        }
         txtDtRetorno = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter formato= new javax.swing.text.MaskFormatter("##/##/####");
+            txtDtRetorno = new javax.swing.JFormattedTextField(formato);
+        }
+        catch (Exception e){
+        }
         comboFinalizado = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 51));
@@ -94,7 +137,7 @@ public class CadastrarLocacao extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(255, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Voltar");
         btnCancelar.setBorder(null);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,22 +157,40 @@ public class CadastrarLocacao extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Pessoa:");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Veículo:");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Data de retorno:");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Status de finalização:");
 
+        comboVeiculos.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        comboVeiculos.setForeground(new java.awt.Color(51, 51, 51));
+
+        comboPessoas.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
+        comboPessoas.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Data de saída:");
 
+        txtDtSaida.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        txtDtSaida.setForeground(new java.awt.Color(51, 51, 51));
         txtDtSaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDtSaidaActionPerformed(evt);
             }
         });
 
+        txtDtRetorno.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        txtDtRetorno.setForeground(new java.awt.Color(51, 51, 51));
+
+        comboFinalizado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        comboFinalizado.setForeground(new java.awt.Color(51, 51, 51));
         comboFinalizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não finalizado" }));
         comboFinalizado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,43 +203,43 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(530, 530, 530)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(250, 250, 250))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(164, 164, 164)
+                    .addComponent(jLabel5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtDtSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(8, 8, 8))
+                .addGroup(layout.createSequentialGroup()
                     .addGap(77, 77, 77)
                     .addComponent(jLabel6)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(comboFinalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(100, 100, 100)
-                    .addComponent(jLabel5)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel7)
-                    .addGap(224, 224, 224)))
+                    .addComponent(comboFinalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(140, 140, 140)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(comboPessoas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtDtSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(6, 6, 6)
-                            .addComponent(comboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addComponent(jLabel4)
+                .addGap(6, 6, 6)
+                .addComponent(comboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(262, 262, 262))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,34 +248,34 @@ public class CadastrarLocacao extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel3))
-                    .addComponent(comboPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(comboVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDtSaida))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)))
-                    .addComponent(txtDtSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboFinalizado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(119, 119, 119)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
