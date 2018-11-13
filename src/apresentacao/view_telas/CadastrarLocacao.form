@@ -48,7 +48,7 @@
               <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="comboPessoas" min="-2" pref="624" max="-2" attributes="0"/>
+              <Component id="comboPessoas" min="-2" pref="620" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="140" pref="140" max="-2" attributes="0"/>

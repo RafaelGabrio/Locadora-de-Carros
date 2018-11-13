@@ -65,7 +65,7 @@ public class CadastroVeiculoTracaoAnimal extends javax.swing.JFrame {
 
         comboTipoTracao.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
         comboTipoTracao.setForeground(new java.awt.Color(51, 51, 51));
-        comboTipoTracao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Escolha uma opção--", "bike", "skate", "patins" }));
+        comboTipoTracao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "bike", "skate", "patins" }));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Tipo:");

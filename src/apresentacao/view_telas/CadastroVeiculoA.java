@@ -113,7 +113,7 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
 
         comboTipo.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
         comboTipo.setForeground(new java.awt.Color(51, 51, 51));
-        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecionar Item --", "Moto", "Carro", "Caminhão" }));
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moto", "Carro", "Caminhão" }));
         comboTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboTipoActionPerformed(evt);
@@ -180,7 +180,7 @@ public class CadastroVeiculoA extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nAno, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(nAno)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
