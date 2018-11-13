@@ -16,7 +16,6 @@ public class LocacaoPersistencia {
     Persistencia persistencia;
     public LocacaoPersistencia(Locacao l) throws IOException{
         persistencia = new PersistenciaArquivo();
-        persistencia.salvar(l, "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
-                + "\\trabalholocadora\\trabalholocadora\\BD\\Locação\\Locacao.dat");
+        persistencia.salvar(l, "src\\BD\\Locacao.dat");
     }
 }

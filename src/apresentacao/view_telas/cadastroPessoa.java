@@ -173,6 +173,7 @@ public class cadastroPessoa extends javax.swing.JFrame {
             new PessoaFisicaNE().cadastrar(p);
             JOptionPane.showMessageDialog(null, "Nome: "+nome+"\n"+"CPF: "+cpf+"\n"+"Sexo: "+sexo
                     +"\nIdade: "+idade,"Resumo",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Pessoa Cadastrada com Sucesso!");
 
         } catch (Exception e){
             e.printStackTrace();

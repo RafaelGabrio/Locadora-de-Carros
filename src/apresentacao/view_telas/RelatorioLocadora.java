@@ -7,6 +7,7 @@ package apresentacao.view_telas;
 
 import classes.Locacao;
 import classes.Locadora;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,10 +28,12 @@ public class RelatorioLocadora extends javax.swing.JFrame {
 
     public RelatorioLocadora() {
         initComponents();
-        String caminho= "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Locação\\Locacao.dat";
+        String caminho= "src\\BD\\Locacao.dat";
         PersistenciaArquivo arq = new PersistenciaArquivo();
         int cont;
-        try {
+        File file = new File(caminho);
+        if (file.exists()){
+            try {
             cont = arq.ler(caminho).size();
             for (int i = 0; i < cont; i++){
                 locadora.add((Locacao) arq.ler(caminho).get(i));
@@ -38,8 +41,8 @@ public class RelatorioLocadora extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        }
         
-
         txtTotalLocacao.setText(Integer.toString(locadora.getQuantidade()));
         txtLocacaoEmAberto.setText(Integer.toString(locadora.getQuanitadeNaoFinalizadas()));
         txtTipoComLocacao.setText(locadora.getQntTipoVeiculoNaoFinalizado());

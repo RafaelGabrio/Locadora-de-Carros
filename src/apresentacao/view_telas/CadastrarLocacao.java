@@ -30,14 +30,10 @@ public class CadastrarLocacao extends javax.swing.JFrame {
     public CadastrarLocacao() {
         initComponents();
         
-        String caminhoPes = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
-                + "\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat";
-        String caminhoJud = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
-                + "\\trabalholocadora\\trabalholocadora\\BD\\PessoasJuridicas\\PessoaJ.dat";
-        String caminhoveiculoAut = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
-                + "\\trabalholocadora\\trabalholocadora\\BD\\Veiculos\\Veiculo_Auto.dat";
-        String caminhoveiculoAnin = "C:\\Users\\rafae\\Documents\\NetBeansProjects\\trabalholocadora"
-                + "\\trabalholocadora\\trabalholocadora\\BD\\Veiculos\\Veiculo_Ani.dat";
+        String caminhoPes = "src\\BD\\Pessoa.dat";
+        String caminhoJud = "src\\BD\\PessoaJ.dat";
+        String caminhoveiculoAut = "src\\BD\\VeiculoAut";
+        String caminhoveiculoAnin = "src\\BD\\VeiculoAni";
         int cont;
         PersistenciaArquivo arq = new PersistenciaArquivo();
         File file = new File(caminhoPes);

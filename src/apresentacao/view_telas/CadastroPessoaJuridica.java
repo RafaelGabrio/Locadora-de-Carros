@@ -24,8 +24,7 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
         initComponents();
         PersistenciaArquivo arq = new PersistenciaArquivo();
 
-        String caminho = "C:\\Users\\rafae\\Documents\\NetBeansProjects"
-                    + "\\trabalholocadora\\trabalholocadora\\trabalholocadora\\BD\\Pessoas\\Pessoa.dat";
+        String caminho = "src\\BD\\Pessoa.dat";
         File file = new File(caminho);
         if (file.exists()) {
             int cont;
@@ -207,6 +206,7 @@ public class CadastroPessoaJuridica extends javax.swing.JFrame {
             new PessoaJuridicaNE().cadastrar(pj);
             JOptionPane.showMessageDialog(null, "Nome do Respons.: "+pr.getNome()
             +"\nCNPJ: "+cnpj, "Cadastrado Com Sucesso ... Resumo",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Pessoa Jurídica Cadastrada com Sucesso!");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
