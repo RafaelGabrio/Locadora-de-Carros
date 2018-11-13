@@ -160,7 +160,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="--Escolha uma op&#xe7;&#xe3;o--"/>
+            <StringItem index="0" value="Sem CNH"/>
             <StringItem index="1" value="A"/>
             <StringItem index="2" value="B"/>
             <StringItem index="3" value="D"/>
@@ -185,10 +185,9 @@
           <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="--Escolha uma op&#xe7;&#xe3;o--"/>
-            <StringItem index="1" value="Feminino"/>
-            <StringItem index="2" value="Masculino"/>
+          <StringArray count="2">
+            <StringItem index="0" value="Feminino"/>
+            <StringItem index="1" value="Masculino"/>
           </StringArray>
         </Property>
       </Properties>

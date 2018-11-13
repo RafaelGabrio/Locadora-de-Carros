@@ -107,12 +107,12 @@ public class cadastroPessoa extends javax.swing.JFrame {
 
         comboCNH.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
         comboCNH.setForeground(new java.awt.Color(51, 51, 51));
-        comboCNH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Escolha uma opção--", "A", "B", "D" }));
+        comboCNH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sem CNH", "A", "B", "D" }));
         getContentPane().add(comboCNH, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 230, 30));
 
         comboSexo.setFont(new java.awt.Font("Segoe UI Symbol", 0, 14)); // NOI18N
         comboSexo.setForeground(new java.awt.Color(51, 51, 51));
-        comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Escolha uma opção--", "Feminino", "Masculino" }));
+        comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino" }));
         comboSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboSexoActionPerformed(evt);
