@@ -32,8 +32,8 @@ public class CadastrarLocacao extends javax.swing.JFrame {
         
         String caminhoPes = "src\\BD\\Pessoa.dat";
         String caminhoJud = "src\\BD\\PessoaJ.dat";
-        String caminhoveiculoAut = "src\\BD\\VeiculoAut";
-        String caminhoveiculoAnin = "src\\BD\\VeiculoAni";
+        String caminhoveiculoAut = "src\\BD\\VeiculoAut.dat";
+        String caminhoveiculoAnin = "src\\BD\\VeiculoAni.dat";
         int cont;
         PersistenciaArquivo arq = new PersistenciaArquivo();
         File file = new File(caminhoPes);
